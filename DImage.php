@@ -5,8 +5,8 @@ namespace QL\Ext;
  * @Author: Jaeger <hj.q@qq.com>
  * @Date:   2015-07-15 23:27:52
  * @Last Modified by:   Jaeger
- * @Last Modified time: 2016-07-09 00:23:05
- * @version         1.1
+ * @Last Modified time: 2016-07-09 00:45:08
+ * @version         1.1.1
  * 图片下载扩展
  */
 
@@ -62,6 +62,7 @@ class DImage extends AQuery
     public function getSrc($img,$args)
     {
         $src = $args['base_url'];
+        is_string($args['attr']) && $args['attr'] = array($args['attr']);
         foreach ($args['attr'] as $attr) {
             $val = pq($img)->attr($attr);
             if(!empty($val)){
